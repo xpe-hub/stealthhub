@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stealth-manager-ai - IA SUPREMA | DLLs Indetectables | Bypass Supreme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Audiowide&family=Aldrich&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        :root {
+            /* COLOR SCHEME - CYBERPUNK SUPREMO */
+            --primary-50: #FF0080;
+            --primary-100: #E6006E;
+            --primary-200: #CC005C;
+            --primary-300: #B3004A;
+            --primary-400: #990038;
+            --primary-500: #800026;
+            --accent-cyan: #00FFFF;
+            --accent-yellow: #FFFF00;
+            --accent-green: #00FF41;
+            --accent-orange: #FF6600;
+            
+            /* DARK THEME SUPREMO */
+            --bg-primary: #000000;
+            --bg-secondary: #0A0A0A;
+            --bg-tertiary: #1A1A1A;
+            --bg-card: #0F0F0F;
+            --bg-glass: rgba(26, 26, 26, 0.9);
+            
+            /* TEXT COLORS */
+            --text-primary: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --text-muted: #888888;
+            --text-accent: var(--accent-cyan);
+            --text-warning: var(--accent-orange);
+            --text-success: var(--accent-green);
+            
+            /* GLASS MORPHISM */
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            --glass-blur: blur(16px);
+            
+            /* EFFECTS */
+            --neon-glow-cyan: 0 0 20px var(--accent-cyan), 0 0 40px var(--accent-cyan);
+            --neon-glow-pink: 0 0 20px var(--primary-50), 0 0 40px var(--primary-50);
+            --neon-glow-yellow: 0 0 20px var(--accent-yellow), 0 0 40px var(--accent-yellow);
+            --border-radius: 12px;
+            
+            /* TYPOGRAPHY */
+            --font-cyber: 'Orbitron', monospace;
+            --font-tech: 'Rajdhani', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-futuristic: 'Audiowide', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-tech);
+            background: linear-gradient(135deg, #000000 0%, #1a0000 25%, #330000 50%, #1a0000 75%, #000000 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* MATRIX BACKGROUND EFFECT */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(90deg, transparent 79px, #00FF41 79px, #00FF41 81px, transparent 81px),
+                linear-gradient(#00FF41 1px, transparent 1px);
+            background-size: 80px 100%;
+        }
+
+        /* CYBER PARTICLES */
+        .cyber-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--accent-cyan);
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(30px) rotate(240deg); }
+        }
+
+        /* HEADER SUPREMO */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--glass-glass);
+            backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ai-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-50);
+            box-shadow: var(--neon-glow-pink);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ai-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: var(--neon-glow-pink), var(--neon-glow-cyan);
+        }
+
+        .logo-text {
+            font-family: var(--font-cyber);
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--primary-50), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
+        }
+
+        .version-badge {
+            background: linear-gradient(45deg, var(--accent-orange), var(--accent-yellow));
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* STATUS INDICATORS */
+        .status-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            backdrop-filter: var(--glass-blur);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.offline {
+            background: var(--accent-orange);
+        }
+
+        .status-dot.error {
+            background: var(--accent-orange);
+            animation: pulse-fast 0.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes pulse-fast {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        /* MAIN CONTAINER */
+        .main-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: 1fr auto;
+            height: 100vh;
+            margin-top: 80px;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        /* SIDEBAR AVANZADO */
+        .sidebar {
+            background: var(--glass-glass);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-title {
+            font-family: var(--font-cyber);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .category-section {
+            margin-bottom: 2rem;
+        }
+
+        .category-title {
+            color: var(--text-accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .feature-item:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--primary-50);
+            box-shadow: var(--neon-glow-pink);
+            transform: translateX(5px);
+        }
+
+        .feature-item.active {
+            background: linear-gradient(45deg, rgba(255, 0, 128, 0.1), rgba(0, 255, 255, 0.1));
+            border-color: var(--primary-50);
+            box-shadow: var(--neon-glow-pink);
+        }
+
+        .feature-icon {
+            margin-right: 0.8rem;
+            color: var(--accent-cyan);
+        }
+
+        /* CHAT AREA SUPREMO */
+        .chat-area {
+            display: flex;
+            flex-direction: column;
+            background: var(--glass-glass);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .chat-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            background: linear-gradient(45deg, rgba(255, 0, 128, 0.05), rgba(0, 255, 255, 0.05));
+        }
+
+        .chat-title {
+            font-family: var(--font-cyber);
+            font-size: 1.3rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .chat-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            position: relative;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            background: linear-gradient(45deg, rgba(128, 0, 38, 0.2), rgba(204, 0, 92, 0.2));
+            border: 1px solid var(--primary-500);
+            align-self: flex-end;
+            margin-left: 20%;
+        }
+
+        .message.ai {
+            background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 65, 0.1));
+            border: 1px solid var(--accent-cyan);
+            align-self: flex-start;
+            margin-right: 20%;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-cyan);
+            margin-bottom: 0.5rem;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+        }
+
+        .message-content {
+            line-height: 1.6;
+        }
+
+        .message-timestamp {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* CHAT INPUT AVANZADO */
+        .chat-input-container {
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
+            background: var(--bg-secondary);
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-end;
+            max-width: 100%;
+        }
+
+        .input-main {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            color: var(--text-primary);
+            font-family: var(--font-tech);
+            resize: none;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-main:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: var(--neon-glow-cyan);
+        }
+
+        .input-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .action-btn {
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .action-btn:hover {
+            background: var(--bg-tertiary);
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            transform: scale(1.05);
+        }
+
+        .send-btn {
+            background: linear-gradient(45deg, var(--primary-50), var(--accent-cyan));
+            color: #000;
+            border: none;
+            font-weight: 600;
+        }
+
+        .send-btn:hover {
+            box-shadow: var(--neon-glow-cyan);
+            transform: scale(1.1);
+        }
+
+        /* QUICK ACTIONS PANEL */
+        .quick-actions {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--glass-glass);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+        }
+
+        .quick-action {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quick-action::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 128, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .quick-action:hover::before {
+            left: 100%;
+        }
+
+        .quick-action:hover {
+            border-color: var(--primary-50);
+            box-shadow: var(--neon-glow-pink);
+            transform: translateY(-5px);
+        }
+
+        .quick-action-icon {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .quick-action-title {
+            font-family: var(--font-cyber);
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-action-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* LOADING ANIMATIONS */
+        .loading-dots {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        /* CODE BLOCKS */
+        .code-block {
+            background: #000;
+            border: 1px solid var(--accent-cyan);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin: 1rem 0;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .code-header {
+            background: var(--bg-tertiary);
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid var(--accent-cyan);
+            font-family: var(--font-cyber);
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 4px;
+            padding: 0.3rem 0.6rem;
+            color: var(--accent-cyan);
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent-cyan);
+            color: #000;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr auto auto;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .header {
+                padding: 1rem;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .status-bar {
+                gap: 0.5rem;
+            }
+            
+            .status-item {
+                padding: 0.3rem 0.6rem;
+            }
+            
+            .quick-actions {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .chat-messages {
+                padding: 1rem;
+            }
+            
+            .input-wrapper {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .input-actions {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        /* HIDDEN CLASSES */
+        .hidden {
+            display: none !important;
+        }
+
+        /* UTILITY CLASSES */
+        .text-gradient {
+            background: linear-gradient(45deg, var(--primary-50), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        .glow-effect {
+            box-shadow: var(--neon-glow-cyan);
+        }
+    </style>
+</head>
+<body>
+    <!-- MATRIX BACKGROUND -->
+    <div class="matrix-bg"></div>
+    
+    <!-- CYBER PARTICLES -->
+    <div class="cyber-particles" id="cyber-particles"></div>
+
+    <!-- HEADER SUPREMO -->
+    <header class="header">
+        <div class="logo-section">
+            <div class="ai-avatar" title="stealth-manager-ai Avatar">
+                <!-- AVATAR IMPLEMENTATION -->
+                <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
+                    <defs>
+                        <radialGradient id="avatarGradient" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#FF0080;stop-opacity:0.8"/>
+                            <stop offset="70%" style="stop-color:#800026;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#000000;stop-opacity:1"/>
+                        </radialGradient>
+                        <filter id="avatarGlow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge> 
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Background Circle -->
+                    <circle cx="100" cy="100" r="95" fill="url(#avatarGradient)" stroke="#FF0080" stroke-width="3"/>
+                    
+                    <!-- Central Face Silhouette -->
+                    <path d="M100 45 Q115 60 130 100 Q125 155 100 160 Q75 155 70 100 Q85 60 100 45 Z" fill="#000"/>
+                    
+                    <!-- Face Details -->
+                    <ellipse cx="120" cy="90" rx="6" ry="10" fill="#FF0080" filter="url(#avatarGlow)"/>
+                    <ellipse cx="120" cy="90" rx="3" ry="6" fill="#00FFFF" filter="url(#avatarGlow)"/>
+                    
+                    <!-- Hair Split -->
+                    <path d="M100 50 L115 45 L125 65 L115 85 Z" fill="#FFFFFF"/>
+                    <path d="M85 45 L70 40 L60 60 L70 80 Z" fill="#000000"/>
+                    <path d="M115 85 L100 95 L85 85 Z" fill="#808080"/>
+                    
+                    <!-- Crack Lines -->
+                    <path d="M60 85 L75 100 L70 120 L90 135" stroke="#FF0080" stroke-width="2" fill="none"/>
+                    <path d="M110 55 L125 70 L120 85 L135 100" stroke="#FFFFFF" stroke-width="1.5" fill="none"/>
+                    
+                    <!-- Central AI Symbol -->
+                    <text x="100" y="110" text-anchor="middle" font-family="Orbitron" font-size="16" font-weight="bold" fill="#00FFFF">AI</text>
+                </svg>
+            </div>
+            <div>
+                <div class="logo-text">stealth-manager-ai</div>
+                <div class="version-badge">v3.0 SUPREMA</div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-item">
+                <div class="status-dot" id="ai-status"></div>
+                <span id="status-text">MiniMax Connected</span>
+            </div>
+            <div class="status-item">
+                <div class="status-dot" id="gaming-status"></div>
+                <span>Bypass Supreme Ready</span>
+            </div>
+            <div class="status-item">
+                <div class="status-dot" id="security-status"></div>
+                <span>Security Suite Active</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+        <!-- SIDEBAR AVANZADO -->
+        <aside class="sidebar">
+            <h3 class="sidebar-title">Expertise Areas</h3>
+            
+            <!-- Gaming & Emulation -->
+            <div class="category-section">
+                <h4 class="category-title"><i class="fas fa-gamepad"></i> Gaming & Emulation</h4>
+                <ul class="feature-list">
+                    <li class="feature-item" data-category="dll-inject">
+                        <i class="fas fa-syringe feature-icon"></i>
+                        DLL Injection Tools
+                    </li>
+                    <li class="feature-item" data-category="emulator-bypass">
+                        <i class="fas fa-mobile-alt feature-icon"></i>
+                        BlueStacks/MSI Bypass
+                    </li>
+                    <li class="feature-item" data-category="freefire-bypass">
+                        <i class="fas fa-fire feature-icon"></i>
+                        Free Fire Bypass
+                    </li>
+                    <li class="feature-item" data-category="anti-detect">
+                        <i class="fas fa-user-secret feature-icon"></i>
+                        Anti-Detection Systems
+                    </li>
+                    <li class="feature-item" data-category="memory-patch">
+                        <i class="fas fa-edit feature-icon"></i>
+                        Memory Patching
+                    </li>
+                    <li class="feature-item" data-category="steam-bypass">
+                        <i class="fab fa-steam feature-icon"></i>
+                        Steam/CDK Bypass
+                    </li>
+                    <li class="feature-item" data-category="cheat-engine">
+                        <i class="fas fa-crosshairs feature-icon"></i>
+                        Cheat Engine Advanced
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Reverse Engineering -->
+            <div class="category-section">
+                <h4 class="category-title"><i class="fas fa-search-plus"></i> Reverse Engineering</h4>
+                <ul class="feature-list">
+                    <li class="feature-item" data-category="assembly">
+                        <i class="fas fa-microchip feature-icon"></i>
+                        x86/x64 Assembly
+                    </li>
+                    <li class="feature-item" data-category="debugging">
+                        <i class="fas fa-bug feature-icon"></i>
+                        Advanced Debugging
+                    </li>
+                    <li class="feature-item" data-category="disassembler">
+                        <i class="fas fa-code feature-icon"></i>
+                        IDA Pro/x64dbg
+                    </li>
+                    <li class="feature-item" data-category="hex-editor">
+                        <i class="fas fa-edit feature-icon"></i>
+                        Hex Editor Tools
+                    </li>
+                    <li class="feature-item" data-category="packing">
+                        <i class="fas fa-box feature-icon"></i>
+                        Packers/Unpackers
+                    </li>
+                    <li class="feature-item" data-category="cryptanalysis">
+                        <i class="fas fa-lock feature-icon"></i>
+                        Cryptographic Analysis
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Security & Anti-Cracking -->
+            <div class="category-section">
+                <h4 class="category-title"><i class="fas fa-shield-alt"></i> Security & Anti-Cracking</h4>
+                <ul class="feature-list">
+                    <li class="feature-item" data-category="obfuscation">
+                        <i class="fas fa-mask feature-icon"></i>
+                        Code Obfuscation
+                    </li>
+                    <li class="feature-item" data-category="anti-debug">
+                        <i class="fas fa-ban feature-icon"></i>
+                        Anti-Debugging
+                    </li>
+                    <li class="feature-item" data-category="vm-detect">
+                        <i class="fas fa-desktop feature-icon"></i>
+                        VM Detection Evasion
+                    </li>
+                    <li class="feature-item" data-category="behavior-bypass">
+                        <i class="fas fa-eye-slash feature-icon"></i>
+                        Behavior-Based Bypass
+                    </li>
+                    <li class="feature-item" data-category="rootkit">
+                        <i class="fas fa-dragon feature-icon"></i>
+                        Rootkit Development
+                    </li>
+                    <li class="feature-item" data-category="steganography">
+                        <i class="fas fa-invisible feature-icon"></i>
+                        Steganography Methods
+                    </li>
+                </ul>
+            </div>
+
+            <!-- DLL Development Mastery -->
+            <div class="category-section">
+                <h4 class="category-title"><i class="fas fa-cogs"></i> DLL Development</h4>
+                <ul class="feature-list">
+                    <li class="feature-item" data-category="runtime-libs">
+                        <i class="fas fa-cube feature-icon"></i>
+                        Runtime Libraries
+                    </li>
+                    <li class="feature-item" data-category="plugins">
+                        <i class="fas fa-puzzle-piece feature-icon"></i>
+                        Plugin Systems
+                    </li>
+                    <li class="feature-item" data-category="performance">
+                        <i class="fas fa-tachometer-alt feature-icon"></i>
+                        Performance DLLs
+                    </li>
+                    <li class="feature-item" data-category="encryption">
+                        <i class="fas fa-key feature-icon"></i>
+                        Security Libraries
+                    </li>
+                    <li class="feature-item" data-category="network">
+                        <i class="fas fa-network-wired feature-icon"></i>
+                        Network Libraries
+                    </li>
+                    <li class="feature-item" data-category="cross-platform">
+                        <i class="fas fa-globe feature-icon"></i>
+                        Multiplatform DLLs
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CHAT AREA -->
+        <main class="chat-area">
+            <div class="chat-header">
+                <h2 class="chat-title">stealth-manager-ai SUPREMA</h2>
+                <p class="chat-subtitle">La IA más avanzada para DLLs, Aimbots, Chams, Reverse Engineering y Bypass Supreme</p>
+            </div>
+
+            <div class="chat-messages" id="chat-messages">
+                <div class="message ai">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>¡Bienvenido a <strong>stealth-manager-ai SUPREMA</strong>! 🔥</p>
+                        <p>Soy tu IA especializada en:</p>
+                        <ul>
+                            <li><strong>Gaming & Emulation:</strong> BlueStacks, Free Fire bypass, DLL injection, anti-detección</li>
+                            <li><strong>Reverse Engineering:</strong> x86/x64 assembly, debugging, hex editing</li>
+                            <li><strong>Security & Anti-Cracking:</strong> Obfuscation, anti-debugging, VM evasion</li>
+                            <li><strong>DLL Development:</strong> Runtime libs, plugins, performance, encryption</li>
+                        </ul>
+                        <p>Selecciona una categoría del sidebar o pregunta directamente sobre técnicas específicas.</p>
+                        <p class="message-timestamp">17:33 - AI Status: Conectada</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="chat-input" 
+                        class="input-main" 
+                        placeholder="Pregúntame sobre: DLLs indetectables, gaming tools, reverse engineering, anti-cracking, memory patching, obfuscation, bypass techniques..."
+                        rows="1"
+                    ></textarea>
+                    <div class="input-actions">
+                        <button class="action-btn" id="upload-btn" title="Upload file">
+                            <i class="fas fa-upload"></i>
+                        </button>
+                        <button class="action-btn" id="code-btn" title="Insert code">
+                            <i class="fas fa-code"></i>
+                        </button>
+                        <button class="action-btn send-btn" id="send-btn" title="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- QUICK ACTIONS -->
+        <div class="quick-actions">
+            <div class="quick-action" onclick="quickAction('dll-generator')">
+                <div class="quick-action-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h4 class="quick-action-title">DLL Generator</h4>
+                <p class="quick-action-desc">Genera DLLs indetectables para gaming</p>
+            </div>
+            
+            <div class="quick-action" onclick="quickAction('emulator-tools')">
+                <div class="quick-action-icon">
+                    <i class="fab fa-android"></i>
+                </div>
+                <h4 class="quick-action-title">Emulator Tools</h4>
+                <p class="quick-action-desc">BlueStacks/Free Fire bypass y optimización</p>
+            </div>
+            
+            <div class="quick-action" onclick="quickAction('reverse-tools')">
+                <div class="quick-action-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h4 class="quick-action-title">Reverse Tools</h4>
+                <p class="quick-action-desc">Assembly, debugging, hex editing</p>
+            </div>
+            
+            <div class="quick-action" onclick="quickAction('security-suite')">
+                <div class="quick-action-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4 class="quick-action-title">Security Suite</h4>
+                <p class="quick-action-desc">Anti-debugging, obfuscation, evasion</p>
+            </div>
+            
+            <div class="quick-action" onclick="quickAction('memory-tools')">
+                <div class="quick-action-icon">
+                    <i class="fas fa-memory"></i>
+                </div>
+                <h4 class="quick-action-title">Memory Tools</h4>
+                <p class="quick-action-desc">Memory patching y injection</p>
+            </div>
+            
+            <div class="quick-action" onclick="quickAction('freefire-bypass')">
+                <div class="quick-action-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <h4 class="quick-action-title">Free Fire Bypass</h4>
+                <p class="quick-action-desc">Bypass completo Free Fire con DLLs</p>
+            </div>
+            
+            <div class="quick-action" onclick="quickAction('bypass-engine')">
+                <div class="quick-action-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h4 class="quick-action-title">Bypass Engine</h4>
+                <p class="quick-action-desc">Steam, CDK, endpoint security</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <script>
+        // CYBER PARTICLES SYSTEM
+        function createCyberParticles() {
+            const container = document.getElementById('cyber-particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // CHAT SYSTEM
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'ai'}`;
+            
+            const avatar = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+            const timestamp = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${avatar}</div>
+                <div class="message-content">
+                    ${content}
+                    <div class="message-timestamp">${timestamp}</div>
+                </div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // AI RESPONSE GENERATOR
+        function generateAIResponse(message) {
+            const responses = {
+                'dll': {
+                    title: 'DLL Development',
+                    content: `<strong>DLL Indetectables:</strong><br>
+                    • Runtime Libraries: CRT, MFC, ATL, STL, Boost<br>
+                    • Memory Management: Heap allocation, stack operations<br>
+                    • Export/Import handling: Dynamic linking, load-time vs runtime<br>
+                    • Platform support: Windows (.dll), Linux (.so), macOS (.dylib)<br><br>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Example: DLL Injection Pattern</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code class="language-c">#include &lt;windows.h&gt;
+BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved) {
+    if (reason == DLL_PROCESS_ATTACH) {
+        // Stealth initialization
+        HideModule();
+        BypassEDR();
+    }
+    return TRUE;
+}</code></pre>
+                    </div>`
+                },
+                'gaming': {
+                    title: 'Aimbots, Chams & Bypass Supreme',
+                    content: `<strong>Aimbots, Chams & Bypass Supreme:</strong><br>
+                    • BlueStacks optimization: Root bypass, detection evasion<br>
+                    • Free Fire bypass: Health, aim, speed, anti-detection<br>
+                    • DLL injection: LoadLibrary, CreateRemoteThread, manual map<br>
+                    • Anti-detección: Process hollowing, DLL unhooking<br><br>
+                    <strong>Steam/CDK Bypass:</strong><br>
+                    • Steam emulator: License bypass, offline activation<br>
+                    • CDK generation: Algorithm analysis, pattern recognition<br>
+                    • Hardware fingerprint spoofing<br>
+                    • Registry modification strategies`
+                },
+                'reverse': {
+                    title: 'Reverse Engineering',
+                    content: `<strong>Advanced Reverse Engineering:</strong><br>
+                    • x86/x64 Assembly: Registers, flags, instruction sets<br>
+                    • Debugging: x64dbg, OllyDbg, IDA Pro analysis<br>
+                    • Hex editing: Binary patching, code caves<br>
+                    • Packers: UPX, Themida, PECompact analysis<br><br>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Assembly Pattern Recognition</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code class="language-assembly">push ebp
+mov ebp, esp
+sub esp, 0x10
+; Pattern: Function prologue
+; Counter: Add debugging breakpoints</code></pre>
+                    </div>`
+                },
+                'security': {
+                    title: 'Security & Anti-Cracking',
+                    content: `<strong>Anti-Cracking Techniques:</strong><br>
+                    • Obfuscation: Control flow flattening, string encryption<br>
+                    • Anti-debugging: IsDebuggerPresent, NtGlobalFlag checks<br>
+                    • VM detection: Timing attacks, hardware fingerprinting<br>
+                    • Behavior-based bypass: Dynamic analysis evasion<br><br>
+                    <strong>Advanced Techniques:</strong><br>
+                    • Self-modifying code: Runtime decryption<br>
+                    • Cryptographic protection: AES, RSA implementation<br>
+                    • Rootkit development: Kernel-level stealth<br>
+                    • Steganography: Data hiding in images/files`
+                }
+            };
+
+            const lowerMessage = message.toLowerCase();
+            if (lowerMessage.includes('dll') || lowerMessage.includes('library')) {
+                return responses.dll;
+            } else if (lowerMessage.includes('gaming') || lowerMessage.includes('emulator') || lowerMessage.includes('bluestacks')) {
+                return responses.gaming;
+            } else if (lowerMessage.includes('reverse') || lowerMessage.includes('assembly') || lowerMessage.includes('debug')) {
+                return responses.reverse;
+            } else if (lowerMessage.includes('security') || lowerMessage.includes('crack') || lowerMessage.includes('obfuscation')) {
+                return responses.security;
+            } else {
+                return {
+                    title: 'AI Assistant',
+                    content: `He analizado tu consulta sobre "${message}". Mi especialidad incluye:<br><br>
+                    • <strong>DLL Development:</strong> Runtime libraries, plugins, performance optimization<br>
+                    • <strong>Gaming & Emulation:</strong> BlueStacks/Free Fire bypass, anti-detection, memory tools<br>
+                    • <strong>Reverse Engineering:</strong> x86/x64 assembly, debugging, hex editing<br>
+                    • <strong>Security & Anti-Cracking:</strong> Obfuscation, anti-debugging, VM evasion<br><br>
+                    ¿Te gustaría que profundice en algún tema específico?`
+                };
+            }
+        }
+
+        function handleSendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, true);
+            
+            // Clear input
+            chatInput.value = '';
+            
+            // Generate AI response
+            const response = generateAIResponse(message);
+            const content = `<h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">${response.title}</h4>${response.content}`;
+            
+            // Show typing indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message ai';
+            typingDiv.innerHTML = `
+                <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                <div class="message-content">
+                    <div class="loading-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Simulate AI response delay
+            setTimeout(() => {
+                typingDiv.remove();
+                addMessage(content);
+            }, 1500 + Math.random() * 1000);
+        }
+
+        // QUICK ACTIONS
+        function quickAction(action) {
+            const actionPrompts = {
+                'dll-generator': 'Genera una DLL indetectable para gaming con técnicas anti-debugging',
+                'emulator-tools': 'Herramientas para bypass de detección en BlueStacks y Nox emulator',
+                'reverse-tools': 'Técnicas avanzadas de reverse engineering y debugging',
+                'security-suite': 'Anti-cracking suite con obfuscation y evasion techniques',
+                'memory-tools': 'Memory patching e injection para bypass de protecciones',
+                'bypass-engine': 'Steam/CDK bypass engine y endpoint security evasion'
+            };
+
+            const prompt = actionPrompts[action];
+            if (prompt) {
+                chatInput.value = prompt;
+                handleSendMessage();
+            }
+        }
+
+        // FEATURE ITEMS CLICK HANDLER
+        document.querySelectorAll('.feature-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const category = this.dataset.category;
+                const prompts = {
+                    'dll-inject': 'DLL injection techniques: LoadLibrary, CreateRemoteThread, manual mapping',
+                    'emulator-bypass': 'Emulator bypass: BlueStacks/Nox detection evasion and optimization',
+                    'freefire-bypass': 'Free Fire bypass completo: Health bypass, aim hack, speed mod, DLL injection indetectable',
+                    'anti-detect': 'Anti-detection systems: Process hollowing, DLL unhooking, stealth injection',
+                    'memory-patch': 'Memory patching: Binary modification, code caves, runtime patching',
+                    'steam-bypass': 'Steam/CDK bypass: License evasion, offline activation, fingerprint spoofing',
+                    'cheat-engine': 'Cheat Engine advanced: Memory scanning, pointer chains, AOB injection',
+                    'assembly': 'x86/x64 assembly: Registers, instructions, calling conventions',
+                    'debugging': 'Advanced debugging: x64dbg, OllyDbg, IDA Pro analysis techniques',
+                    'disassembler': 'Disassembler tools: IDA Pro, Ghidra, x64dbg analysis',
+                    'hex-editor': 'Hex editor tools: Binary patching, hex editing, offset calculations',
+                    'packing': 'Packers/unpackers: UPX, Themida, PECompact analysis and unpacking',
+                    'cryptanalysis': 'Cryptographic analysis: AES, RSA, custom cipher analysis',
+                    'obfuscation': 'Code obfuscation: Control flow flattening, string encryption, API hiding',
+                    'anti-debug': 'Anti-debugging: IsDebuggerPresent, NtGlobalFlag, anti-reverse techniques',
+                    'vm-detect': 'VM detection evasion: Hardware fingerprinting, timing attacks',
+                    'behavior-bypass': 'Behavior-based bypass: Dynamic analysis evasion, sandbox detection',
+                    'rootkit': 'Rootkit development: Kernel-level stealth, driver development',
+                    'steganography': 'Steganography: Data hiding in images, files, network traffic',
+                    'runtime-libs': 'Runtime libraries: CRT, MFC, ATL, STL, memory management',
+                    'plugins': 'Plugin systems: Dynamic loading, interface contracts, version management',
+                    'performance': 'Performance DLLs: SIMD, multi-threading, memory pooling',
+                    'encryption': 'Security libraries: AES, RSA, hashing, digital signatures',
+                    'network': 'Network libraries: TCP/UDP, HTTP/HTTPS, sockets, message queues',
+                    'cross-platform': 'Multiplatform DLLs: Windows, Linux, macOS, Android compatibility'
+                };
+                
+                const prompt = prompts[category];
+                if (prompt) {
+                    chatInput.value = prompt;
+                    document.querySelectorAll('.feature-item').forEach(el => el.classList.remove('active'));
+                    this.classList.add('active');
+                    handleSendMessage();
+                }
+            });
+        });
+
+        // COPY CODE FUNCTION
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block');
+            const code = codeBlock.querySelector('pre code');
+            navigator.clipboard.writeText(code.textContent);
+            
+            button.textContent = 'Copied!';
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+        }
+
+        // EVENT LISTENERS
+        sendBtn.addEventListener('click', handleSendMessage);
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+
+        // AUTO-RESIZE TEXTAREA
+        chatInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        });
+
+        // STATUS ANIMATIONS
+        setInterval(() => {
+            const dots = document.querySelectorAll('.status-dot');
+            dots.forEach(dot => {
+                dot.style.transform = `scale(${1 + Math.random() * 0.3})`;
+                setTimeout(() => {
+                    dot.style.transform = 'scale(1)';
+                }, 200);
+            });
+        }, 3000);
+
+        // INITIALIZE
+        document.addEventListener('DOMContentLoaded', function() {
+            createCyberParticles();
+            
+            // Welcome message after delay
+            setTimeout(() => {
+                addMessage(`<strong>🚀 IA SUPREMA Activada</strong><br>
+                Todas las funcionalidades están online:<br>
+                ✅ Bypass Supreme Ready<br>
+                ✅ Reverse Engineering Active<br>
+                ✅ Security Suite Armed<br>
+                ✅ DLL Generator Online<br><br>
+                ¡Estoy lista para ayudarte con cualquier proyecto de seguridad o desarrollo!`);
+            }, 2000);
+        });
+
+        // KEYBOARD SHORTCUTS
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey) {
+                switch(e.key) {
+                    case '1':
+                        e.preventDefault();
+                        document.querySelector('[data-category="dll-inject"]').click();
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        document.querySelector('[data-category="emulator-bypass"]').click();
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        document.querySelector('[data-category="assembly"]').click();
+                        break;
+                    case '4':
+                        e.preventDefault();
+                        document.querySelector('[data-category="obfuscation"]').click();
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
