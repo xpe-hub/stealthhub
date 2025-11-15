@@ -9,7 +9,10 @@ loguru==0.7.2
 python-decouple==3.8
 
 # Dependencias de Google OAuth (VERSIÓN CORREGIDA)
+google-auth==2.15.0
 google-auth==2.41.0
+google-auth==2.42.0
+google-auth==2.43.0
 google-auth-oauthlib==1.2.3
 google-auth-httplib2==0.2.1
 requests-oauthlib==2.0.0
